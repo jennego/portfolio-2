@@ -1,3 +1,16 @@
+New portfolio site with Gatsby!
+After the peerdep madness - I just decided to generate a whole new project!
+
+- figure out animation library
+- figure out ui library to build on top of
+
+Will use
+
+- Contentful CMS
+- separate portfolio pages but with lightbox-like transition experience
+- dark theme
+- that's all I know right now
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.com">
