@@ -2,8 +2,38 @@ html,
 body {
   margin: 0;
 }
+body {
+  background-color: rebeccapurple;
+}
 
 .title-page {
-  background-color: blueviolet;
-  height: 100vh;
+  background: url("https://source.unsplash.com/1600x900/?nature,water");
+  background-size: cover;
+}
+
+.clip {
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+.center-layer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+}
+
+.portfolio-heading {
+  color: #f57120;
+}
+
+.portfolio-background {
+  background: #f57120;
+  clip-path: polygon(0 14%, 100% 0, 100% 82%, 0 100%);
+}
+
+/* seperate into top, bottom and responsive */
+
+.content-container {
+  width: 99%;
+  margin-top: 100px;
 }

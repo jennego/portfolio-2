@@ -1,23 +1,30 @@
 import React from "react"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
+import { StaticImage } from "gatsby-plugin-image"
 
 const TitlePage = () => {
   return (
-    <ParallaxLayer className="title-page" offset={0} speed={2.5}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "70vh",
-        }}
+    <>
+      <ParallaxLayer
+        offset={0}
+        speed={0.3}
+        className="center-layer"
+        style={{ zIndex: "5" }}
       >
-        <div>
+        <div style={{ textAlign: "center" }}>
           <h1>Jennifer Chow</h1>
           <h2>Web Developer</h2>
         </div>
-      </div>
-    </ParallaxLayer>
+      </ParallaxLayer>
+
+      <ParallaxLayer offset={0} speed={0.3} className="center-layer">
+        <img
+          src="https://source.unsplash.com/1600x900/?nature,water"
+          className="clip"
+          style={{ objectFit: "cover", height: "100vh", width: "100vw" }}
+        />
+      </ParallaxLayer>
+    </>
   )
 }
 

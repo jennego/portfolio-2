@@ -6,27 +6,17 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import TitlePage from "../components/title-page"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
+import Portfolio from "../components/portfolio"
 
 const IndexPage = () => {
   const ref = useRef()
   return (
-    <Parallax pages={2} style={{ top: "0", left: "0" }}>
+    <Parallax pages={3} style={{ top: "0", left: "0" }}>
+      <TitlePage />
+      <Portfolio />
       <ParallaxLayer
-        offset={0}
-        speed={0.5}
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          background: "lightblue",
-        }}
-      >
-        <p>Scroll down</p>
-      </ParallaxLayer>
-
-      <ParallaxLayer
-        offset={0.9}
-        speed={1}
+        offset={2}
+        speed={0}
         style={{ backgroundColor: "#ff6d6d" }}
       >
         <p>Scroll up</p>
