@@ -41,9 +41,43 @@ h3 {
   clip-path: polygon(0 14%, 100% 0, 100% 82%, 0 100%);
 }
 
+.shape-top {
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+
+  background: #f57120;
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.shape-orange {
+  background-color: #f57120;
+  margin-top: -5px;
+}
+
+.shape::before {
+  content: url(../images/top.svg);
+  width: 100%;
+}
+
+.shape::after {
+  content: url(../images/bottom.svg);
+  width: 100%;
+}
+
+/* .shape-bottom {
+  clip-path: polygon(100% 0, 0 100%, 0 0);
+  background: #f57120;
+  height: 100px;
+  width: 100%;
+  bottom: -140px;
+  position: absolute;
+} */
+
 /* seperate into top, bottom and responsive */
 
-.content-container {
-  width: 99%;
-  margin-top: 100px;
+.vertical-container {
+  margin-top: 30px;
+  margin-bottom: 20px;
 }

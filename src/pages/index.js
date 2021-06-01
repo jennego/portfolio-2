@@ -14,13 +14,6 @@ const IndexPage = () => {
     <Parallax pages={3} style={{ top: "0", left: "0" }}>
       <TitlePage />
       <Portfolio />
-      <ParallaxLayer
-        offset={2}
-        speed={0}
-        style={{ backgroundColor: "#ff6d6d" }}
-      >
-        <p>Scroll up</p>
-      </ParallaxLayer>
     </Parallax>
   )
 }

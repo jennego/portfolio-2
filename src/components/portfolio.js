@@ -12,13 +12,13 @@ const Portfolio = () => {
         </div>
       </ParallaxLayer>
 
-      <ParallaxLayer
-        offset={1}
-        speed={0.5}
-        className="center-layer portfolio-background"
-      >
-        <div className="content-container">
-          <PortfolioGrid />
+      <ParallaxLayer offset={1} factor={1} speed={0.4}>
+        {/* <div className="shape-top"></div> */}
+
+        <div className="shape">
+          <div className="shape-orange">
+            <PortfolioGrid />
+          </div>
         </div>
       </ParallaxLayer>
     </>
