@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 import TitlePage from "../components/title-page"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 import Portfolio from "../components/portfolio"
+import About from "../components/about"
 
 const IndexPage = () => {
   const ref = useRef()
@@ -14,6 +15,7 @@ const IndexPage = () => {
     <Parallax pages={3} style={{ top: "0", left: "0" }}>
       <TitlePage />
       <Portfolio />
+      <About />
     </Parallax>
   )
 }

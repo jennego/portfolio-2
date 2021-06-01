@@ -6,9 +6,9 @@ import PortfolioGrid from "./portfolio-grid"
 const Portfolio = () => {
   return (
     <>
-      <ParallaxLayer offset={1} speed={0.2} style={{ zIndex: "5" }}>
+      <ParallaxLayer offset={1} speed={0}>
         <div style={{ textAlign: "left" }}>
-          <h1 className="portfolio-heading">Portfolio</h1>
+          <h1 className="section-heading portfolio-heading">Portfolio</h1>
         </div>
       </ParallaxLayer>
 
@@ -16,7 +16,7 @@ const Portfolio = () => {
         {/* <div className="shape-top"></div> */}
 
         <div className="shape">
-          <div className="shape-orange">
+          <div className="shape-orange shape-content">
             <PortfolioGrid />
           </div>
         </div>
