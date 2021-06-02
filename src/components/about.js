@@ -19,7 +19,7 @@ const About = () => {
   const content = data.contentfulSiteInfoAboutMeTextNode.aboutMe
   return (
     <>
-      <ParallaxLayer offset={2} speed={0}>
+      <ParallaxLayer offset={2} speed={0.2}>
         <div style={{ textAlign: "left", zIndex: "-100" }}>
           <h1 className="section-heading about-heading">About</h1>
         </div>

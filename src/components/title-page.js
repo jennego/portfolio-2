@@ -7,7 +7,7 @@ const TitlePage = () => {
     <>
       <ParallaxLayer
         offset={0}
-        speed={0.3}
+        speed={0.2}
         className="center-layer"
         style={{ zIndex: "5" }}
       >
@@ -17,11 +17,16 @@ const TitlePage = () => {
         </div>
       </ParallaxLayer>
 
-      <ParallaxLayer offset={0} speed={0.3} className="center-layer">
-        <img
-          src="https://source.unsplash.com/1600x900/?nature,water"
+      <ParallaxLayer offset={0} speed={0.5} className="center-layer">
+        <StaticImage
+          src="../images/sunset.jpg"
           className="clip"
-          style={{ objectFit: "cover", height: "100vh", width: "100vw" }}
+          style={{
+            objectFit: "cover",
+            objectPosition: "top",
+            height: "100vh",
+            width: "100vw",
+          }}
         />
       </ParallaxLayer>
     </>
