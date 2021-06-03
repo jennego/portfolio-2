@@ -8,14 +8,20 @@ import TitlePage from "../components/title-page"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 import Portfolio from "../components/portfolio"
 import About from "../components/about"
+import Contact from "../components/contact"
 
 const IndexPage = () => {
-  const ref = useRef()
+  const parallax = useRef()
+  const clickHandler = () => {
+    parallax.current.scrollTo(1)
+    console.log("hi you have come to click handler")
+  }
   return (
-    <Parallax pages={3} style={{ top: "0", left: "0" }}>
-      <TitlePage />
+    <Parallax ref={parallax} pages={4} style={{ top: "0", left: "0" }}>
+      <TitlePage toNextPage={() => clickHandler()} />
       <Portfolio />
       <About />
+      <Contact />
     </Parallax>
   )
 }

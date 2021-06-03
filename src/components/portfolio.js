@@ -12,7 +12,7 @@ const Portfolio = () => {
         </div>
       </ParallaxLayer>
 
-      <ParallaxLayer offset={1} factor={1} speed={0.4}>
+      <ParallaxLayer offset={1.05} factor={1} speed={0.4}>
         {/* <div className="shape-top"></div> */}
 
         <div className="shape">
