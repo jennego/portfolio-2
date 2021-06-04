@@ -7,7 +7,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 // convert to rich text fields?
 
-const About = () => {
+const About = props => {
   const data = useStaticQuery(graphql`
     {
       contentfulSiteInfoAboutMeTextNode {

@@ -3,7 +3,7 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 import { StaticImage } from "gatsby-plugin-image"
 import PortfolioGrid from "./portfolio-grid"
 
-const Portfolio = () => {
+const Portfolio = props => {
   return (
     <>
       <ParallaxLayer offset={1} speed={0}>
