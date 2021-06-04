@@ -17,14 +17,14 @@ const IndexPage = () => {
     console.log("hi you have come to click handler")
   }
   return (
-    <SEO title="Jennifer Chow - Web Developer">
+    <Layout>
       <Parallax ref={parallax} pages={4} style={{ top: "0", left: "0" }}>
         <TitlePage toNextPage={() => clickHandler()} />
         <Portfolio />
         <About />
         <Contact />
       </Parallax>
-    </SEO>
+    </Layout>
   )
 }
 

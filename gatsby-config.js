@@ -41,7 +41,16 @@ module.exports = {
         // accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
       },
     },
-
+    {
+      resolve: "gatsby-plugin-sass",
+      options: {
+        cssLoaderOptions: {
+          modules: {
+            exportLocalsConvention: "camelCaseOnly",
+          },
+        },
+      },
+    },
     `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
