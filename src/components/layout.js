@@ -14,6 +14,27 @@ import "./layout.css"
 import Footer from "./footer"
 import SEO from "./seo"
 
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
+
+const theme = createMuiTheme({
+  palette: {
+    type: "dark",
+
+    primary: {
+      light: "#757ce8",
+      main: "#5d97f5",
+      dark: "#5d97f5",
+      contrastText: "#fff",
+    },
+    secondary: {
+      light: "#ff7961",
+      main: "#f44336",
+      dark: "#ba000d",
+      contrastText: "#000",
+    },
+  },
+})
+
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -29,7 +50,9 @@ const Layout = ({ children }) => {
     <>
       <div>
         <SEO />
-        <main>{children}</main>
+        <ThemeProvider theme={theme}>
+          <main>{children}</main>
+        </ThemeProvider>
         {/* <Footer /> */}
       </div>
     </>

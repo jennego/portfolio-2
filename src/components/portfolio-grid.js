@@ -1,10 +1,12 @@
 import React, { useState } from "react"
 import { useSpring, a } from "@react-spring/web"
+import { useStaticQuery, graphql } from "gatsby"
 
 import * as styles from "./styles.module.css"
 import Grid from "@material-ui/core/Grid"
 import Paper from "@material-ui/core/Paper"
 import Container from "@material-ui/core/Container"
+import Button from "@material-ui/core/Button"
 
 const PortfolioGrid = () => {
   const [flipped, set] = useState(false)
@@ -24,6 +26,27 @@ const PortfolioGrid = () => {
     setSelected(id)
     set(false)
   }
+
+  const data = useStaticQuery(graphql`
+    {
+      allContentfulPortfolio {
+        edges {
+          node {
+            id
+            name
+            slug
+            shortDescription
+            mainPhoto {
+              gatsbyImageData
+              fixed(width: 500) {
+                src
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
   return (
     <div style={{ margin: "0", paddingTop: "20px" }}>
       <Container>
@@ -34,57 +57,59 @@ const PortfolioGrid = () => {
           justify="center"
           alignItems="center"
         >
-          <p>flipped state? {flipped.toString()} </p>
-          <Grid item xs={12} md={3}>
-            <div
-              className={styles.container}
-              onMouseEnter={() => flipCard(1)}
-              onMouseLeave={() => flipToFront(1)}
-            >
-              <a.div
-                className={`${styles.c} ${styles.back}`}
-                style={
-                  selected === 1
-                    ? { opacity: opacity.to(o => 1 - o), transform }
-                    : {}
-                }
-              />
-              <a.div
-                className={`${styles.c} ${styles.front}`}
-                style={
-                  selected === 1
-                    ? { opacity, transform, rotateY: "180deg" }
-                    : {}
-                }
-              />
-            </div>
-          </Grid>
-          <Grid item xs={12} md={3}>
-            <div
-              className={styles.container}
-              onMouseEnter={() => flipCard(2)}
-              onMouseLeave={() => flipToFront(2)}
-            >
-              <a.div
-                className={`${styles.c} ${styles.back}`}
-                style={
-                  selected === 2
-                    ? { opacity: opacity.to(o => 1 - o), transform }
-                    : {}
-                }
+          {console.log(data)}
+          {data.allContentfulPortfolio.edges.map(({ node }) => (
+            <Grid item sm={6} md={3}>
+              <div
+                className={styles.container}
+                onMouseEnter={() => flipCard(node.id)}
+                onMouseLeave={() => flipToFront(node.id)}
+                tabIndex={0}
               >
-                <h1> Project Info </h1>
-              </a.div>
-              <a.div
-                className={`${styles.c} ${styles.front}`}
-                style={
-                  selected === 2
-                    ? { opacity, transform, rotateY: "180deg" }
-                    : {}
-                }
-              />
-            </div>
-          </Grid>
+                <a.div
+                  className={`${styles.c} ${styles.back}`}
+                  style={
+                    selected === node.id
+                      ? { opacity: opacity.to(o => 1 - o), transform }
+                      : {}
+                  }
+                >
+                  <Container>
+                    {node.name}
+                    <p style={{ fontSize: "15px", lineHeight: "1.2rem" }}>
+                      {node.shortDescription}
+                    </p>
+                    <Button size="small" variant="outlined" color="primary">
+                      View Project
+                    </Button>
+                  </Container>
+                </a.div>
+                <a.div
+                  className={`${styles.c} ${styles.front}`}
+                  style={
+                    selected === node.id
+                      ? {
+                          opacity,
+                          transform,
+                          rotateY: "180deg",
+                          backgroundImage: `url(${node.mainPhoto.fixed.src})`,
+                          backgroundSize: "cover",
+                        }
+                      : {
+                          backgroundImage: `url(${node.mainPhoto.fixed.src})`,
+                          backgroundSize: "cover",
+                        }
+                  }
+                >
+                  <div className={styles.title}>
+                    <h3 style={{ margin: "8px", fontSize: "20px" }}>
+                      {node.name}
+                    </h3>
+                  </div>
+                </a.div>
+              </div>
+            </Grid>
+          ))}
         </Grid>
       </Container>
     </div>
