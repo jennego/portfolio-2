@@ -52,14 +52,13 @@ const PortfolioGrid = () => {
       <Container>
         <Grid
           container
-          spacing={2}
+          spacing={7}
           direction="row"
           justify="center"
           alignItems="center"
         >
-          {console.log(data)}
           {data.allContentfulPortfolio.edges.map(({ node }) => (
-            <Grid item sm={6} md={3}>
+            <Grid item>
               <div
                 className={styles.container}
                 onMouseEnter={() => flipCard(node.id)}
