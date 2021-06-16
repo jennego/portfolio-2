@@ -1,13 +1,17 @@
 New portfolio site with Gatsby!
-After the peerdep madness - I just decided to generate a whole new project!
 
-- figure out animation library
-- figure out ui library to build on top of
+To do
+
+- add single page (project)
+- organize css
+- fix mobile view
+- improve animation
+- add more layers?
+- ensure basic accessibility
 
 Will use
 
 - Contentful CMS
-- separate portfolio pages but with lightbox-like transition experience
 - dark theme
 - that's all I know right now
 
