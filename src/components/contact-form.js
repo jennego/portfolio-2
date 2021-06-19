@@ -28,14 +28,14 @@ const ContactForm = () => {
         name="name"
         variant="outlined"
         fullWidth={true}
-        style={{ marginBottom: "15px" }}
+        style={{ marginBottom: "15px", background: "rgba(13, 13, 13,0.4)" }}
       />
       <TextField
         label="Email"
         name="email"
         variant="outlined"
         fullWidth={true}
-        style={{ marginBottom: "15px" }}
+        style={{ marginBottom: "15px", background: "rgba(13, 13, 13,0.4)" }}
       />
       <TextField
         name="message"
@@ -46,7 +46,7 @@ const ContactForm = () => {
         placeholder="Placeholder"
         variant="outlined"
         fullWidth={true}
-        style={{ marginBottom: "15px" }}
+        style={{ marginBottom: "15px", background: "rgba(13, 13, 13,0.4)" }}
       />
       <Button
         style={{ alignSelf: "center" }}

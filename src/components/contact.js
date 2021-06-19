@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import PortfolioGrid from "./portfolio-grid"
 import { Container } from "@material-ui/core"
 import { useStaticQuery, graphql } from "gatsby"
+import ContactForm from "./contact-form"
 
 // convert to rich text fields?
 
@@ -19,7 +20,10 @@ const Contact = () => {
       <ParallaxLayer offset={3} factor={1} speed={0.4}>
         <div className="shape-green">
           <div className="shape-content  green-bg">
-            <Container>Form </Container>
+            <Container>
+              {" "}
+              <ContactForm />{" "}
+            </Container>
           </div>
         </div>
       </ParallaxLayer>

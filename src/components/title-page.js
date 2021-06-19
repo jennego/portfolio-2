@@ -18,8 +18,8 @@ const TitlePage = ({ toNextPage }, props) => {
         style={{ zIndex: "5", color: "white" }}
       >
         <div style={{ textAlign: "center" }}>
-          <h1>Jennifer Chow</h1>
-          <h2>Web Developer</h2>
+          <h1 className="site-title">Jennifer Chow</h1>
+          <h2 className="site-subtitle">Web Developer</h2>
         </div>
       </ParallaxLayer>
 

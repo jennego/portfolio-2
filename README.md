@@ -12,6 +12,7 @@ To do
 Will use
 
 - Contentful CMS
+- React Spring
 - dark theme
 - that's all I know right now
 
