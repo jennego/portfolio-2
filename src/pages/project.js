@@ -18,7 +18,11 @@ const ProjectPage = () => {
           </Paper>
         </Grid>
         <Grid item xs={12} md={3}>
-          <Paper style={{ minHeight: "400px" }}>Quick info panel</Paper>
+          <Paper style={{ padding: "1rem" }}>
+            Quick info panel Category: <br></br>
+            Tech: <br />
+            Client <br />
+          </Paper>
         </Grid>
       </Grid>
 
