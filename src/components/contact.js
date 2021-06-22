@@ -13,16 +13,20 @@ const Contact = () => {
     <>
       <ParallaxLayer offset={3} speed={0.2}>
         <div style={{ textAlign: "left", zIndex: "-100" }}>
-          <h1 className="section-heading about-heading">Contact</h1>
+          <h1
+            className="section-heading about-heading"
+            style={{ color: "#0741ed" }}
+          >
+            Contact
+          </h1>
         </div>
       </ParallaxLayer>
 
       <ParallaxLayer offset={3} factor={1} speed={0.4}>
-        <div className="shape-green">
-          <div className="shape-content  green-bg">
+        <div className="shape-blue">
+          <div className="shape-content  blue-bg">
             <Container>
-              {" "}
-              <ContactForm />{" "}
+              <ContactForm />
             </Container>
           </div>
         </div>

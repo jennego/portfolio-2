@@ -69,6 +69,10 @@ h3 {
   background-color: #1cbd47;
 }
 
+.blue-bg {
+  background-color: #0741ed;
+}
+
 .shape-orange {
   background-color: #f57120;
 }
@@ -105,6 +109,18 @@ h3 {
 
 .shape-green::after {
   content: url(../images/green-bottom.svg);
+  width: 100%;
+  z-index: 10;
+}
+
+.shape-blue::before {
+  content: url(../images/blue-top.svg);
+  width: 100%;
+  z-index: 10;
+}
+
+.shape-blue::after {
+  content: url(../images/blue-bottom.svg);
   width: 100%;
   z-index: 10;
 }
