@@ -9,6 +9,7 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 import Portfolio from "../components/portfolio"
 import About from "../components/about"
 import Contact from "../components/contact"
+import Footer from "../components/footer"
 
 const IndexPage = () => {
   const parallax = useRef()
@@ -18,11 +19,12 @@ const IndexPage = () => {
   }
   return (
     <Layout>
-      <Parallax ref={parallax} pages={4} style={{ top: "0", left: "0" }}>
+      <Parallax ref={parallax} pages={4.2} style={{ top: "0", left: "0" }}>
         <TitlePage toNextPage={() => clickHandler()} />
         <Portfolio />
         <About />
         <Contact />
+        <Footer />
       </Parallax>
     </Layout>
   )
