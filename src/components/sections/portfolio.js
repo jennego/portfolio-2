@@ -1,7 +1,7 @@
 import React from "react"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 import { StaticImage } from "gatsby-plugin-image"
-import PortfolioGrid from "./portfolio-grid"
+import PortfolioGrid from "../portfolio-grid"
 
 const Portfolio = props => {
   return (
