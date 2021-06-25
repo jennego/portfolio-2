@@ -25,7 +25,7 @@ const TitlePage = ({ toNextPage }, props) => {
 
       <ParallaxLayer offset={0} speed={0.5} className="center-layer">
         <StaticImage
-          src="../images/ray.jpg"
+          src="../../images/ray.jpg"
           className="clip"
           objectPosition="50% 80%"
           objectFit="cover"

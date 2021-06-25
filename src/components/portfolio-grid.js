@@ -48,7 +48,15 @@ const PortfolioGrid = () => {
     }
   `)
   return (
-    <div style={{ margin: "0", paddingTop: "20px" }}>
+    <div
+      style={{
+        margin: "0",
+        paddingTop: "20px",
+        minHeight: "15rem",
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
       <Container>
         <Grid
           container

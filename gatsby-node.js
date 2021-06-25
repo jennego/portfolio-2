@@ -27,7 +27,7 @@ async function createPortfolioPages(graphql, actions) {
   const pageEdges = (result.data.allContentfulPortfolio || {}).edges || []
 
   pageEdges.forEach((edge, index) => {
-    const { id, slug, title } = edge.node
+    const { id, slug, name } = edge.node
     const path = `/project/${slug}/`
 
     createPage({
@@ -35,7 +35,7 @@ async function createPortfolioPages(graphql, actions) {
       component: require.resolve("./src/templates/project.js"),
       context: {
         id,
-        title,
+        name,
         prev: index === 0 ? null : pageEdges[index - 1].node,
         next: index === pageEdges.length - 1 ? null : pageEdges[index + 1].node,
       },
