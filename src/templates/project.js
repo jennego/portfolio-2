@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid"
 import Container from "@material-ui/core/Container"
 import { graphql } from "gatsby"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
+import ProjectSlider from "../components/slider"
 
 export const query = graphql`
   query projectQuery($id: String!) {
@@ -40,7 +41,7 @@ const ProjectPage = ({ data, pageContext }) => {
     <Layout>
       <SEO title="Page two" />
 
-      <Parallax pages={1} style={{ top: "0", left: "0" }}>
+      <Parallax pages={1.5} style={{ top: "0", left: "0" }}>
         <ParallaxLayer offset={0} speed={0.2}>
           <div style={{ textAlign: "left", zIndex: "-100" }}>
             <h1>{projectData.name}</h1>
@@ -54,11 +55,14 @@ const ProjectPage = ({ data, pageContext }) => {
               <Container>
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={9}>
-                    <p> {projectData.shortDescription} </p>
-                    <Paper></Paper>
+                    <Paper>
+                      {console.log(projectData.gallery)}
+                      <ProjectSlider slides={projectData.gallery} />
+                    </Paper>
                   </Grid>
                   <Grid item xs={12} md={3}>
                     <Paper style={{ padding: "1rem" }}>
+                      <p> {projectData.shortDescription} </p>
                       Quick info panel Category: <br></br>
                       Tech: <br />
                       Client <br />
