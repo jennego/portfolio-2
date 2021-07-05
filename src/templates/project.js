@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import Grid from "@material-ui/core/Grid"
 import Container from "@material-ui/core/Container"
 import { graphql } from "gatsby"
+import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 
 export const query = graphql`
   query projectQuery($id: String!) {
@@ -38,26 +39,38 @@ const ProjectPage = ({ data, pageContext }) => {
   return (
     <Layout>
       <SEO title="Page two" />
-      <h1>{projectData.name}</h1>
-      <h2> {projectData.shortDescription} </h2>
-      {console.log(data)}
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={9}>
-          <Paper>
-            <p> Main photo or video {slug} </p>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <Paper style={{ padding: "1rem" }}>
-            Quick info panel Category: <br></br>
-            Tech: <br />
-            Client <br />
-          </Paper>
-        </Grid>
-      </Grid>
 
-      <p> Photo slider</p>
-      <p> detailed info. Improve this!!!</p>
+      <Parallax pages={1} style={{ top: "0", left: "0" }}>
+        <ParallaxLayer offset={0} speed={0.2}>
+          <div style={{ textAlign: "left", zIndex: "-100" }}>
+            <h1>{projectData.name}</h1>
+            {/* <h2> {projectData.shortDescription} </h2> */}
+          </div>
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={0.1} factor={1} speed={0.4}>
+          <div className="shape-green">
+            <div className="shape-content green-bg">
+              <Container>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} md={9}>
+                    <p> {projectData.shortDescription} </p>
+                    <Paper></Paper>
+                  </Grid>
+                  <Grid item xs={12} md={3}>
+                    <Paper style={{ padding: "1rem" }}>
+                      Quick info panel Category: <br></br>
+                      Tech: <br />
+                      Client <br />
+                      Github / site link
+                    </Paper>
+                  </Grid>
+                </Grid>
+              </Container>
+            </div>
+          </div>
+        </ParallaxLayer>
+      </Parallax>
     </Layout>
   )
 }
