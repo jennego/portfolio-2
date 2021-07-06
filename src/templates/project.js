@@ -8,6 +8,7 @@ import Container from "@material-ui/core/Container"
 import { graphql } from "gatsby"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 import ProjectSlider from "../components/slider"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 export const query = graphql`
   query projectQuery($id: String!) {
@@ -37,11 +38,30 @@ const ProjectPage = ({ data, pageContext }) => {
 
   const projectData = data.contentfulPortfolio
 
+  const document = {
+    nodeType: "document",
+    data: {},
+    content: [
+      {
+        nodeType: "paragraph",
+        data: {},
+        content: [
+          {
+            nodeType: "text",
+            value: "Hello world!",
+            marks: [],
+            data: {},
+          },
+        ],
+      },
+    ],
+  }
+
   return (
     <Layout>
       <SEO title="Page two" />
 
-      <Parallax pages={1.5} style={{ top: "0", left: "0" }}>
+      <Parallax pages={2} style={{ top: "0", left: "0" }}>
         <ParallaxLayer offset={0} speed={0.2}>
           <div style={{ textAlign: "left", zIndex: "-100" }}>
             <h1>{projectData.name}</h1>
@@ -57,7 +77,10 @@ const ProjectPage = ({ data, pageContext }) => {
                   <Grid item xs={12} md={9}>
                     <Paper>
                       {console.log(projectData.gallery)}
-                      <ProjectSlider slides={projectData.gallery} />
+                      <ProjectSlider
+                        slides={projectData.gallery}
+                        photo={projectData.mainPhoto.gatsbyImageData}
+                      />
                     </Paper>
                   </Grid>
                   <Grid item xs={12} md={3}>
@@ -72,6 +95,15 @@ const ProjectPage = ({ data, pageContext }) => {
                 </Grid>
               </Container>
             </div>
+          </div>
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={1} speed={0.5}>
+          <div style={{ textAlign: "left", zIndex: "-100" }}>
+            {console.log(projectData.longDescriptionRt.raw)}
+            {documentToReactComponents(
+              JSON.parse(projectData.longDescriptionRt.raw)
+            )}
           </div>
         </ParallaxLayer>
       </Parallax>

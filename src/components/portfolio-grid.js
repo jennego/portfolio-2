@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useSpring, a } from "@react-spring/web"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, navigate } from "gatsby"
 
 import * as styles from "./styles.module.css"
 import Grid from "@material-ui/core/Grid"
@@ -71,6 +71,7 @@ const PortfolioGrid = () => {
                 className={styles.container}
                 onMouseEnter={() => flipCard(node.id)}
                 onMouseLeave={() => flipToFront(node.id)}
+                onClick={() => navigate(`/project/${node.slug}`)}
                 tabIndex={0}
               >
                 <a.div

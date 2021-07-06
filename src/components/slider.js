@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css"
 import Container from "@material-ui/core/Container"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-const ProjectSlider = ({ slides }) => {
+const ProjectSlider = ({ slides, photo }) => {
   const ref = useRef()
 
   useEffect(() => {
@@ -34,13 +34,17 @@ const ProjectSlider = ({ slides }) => {
   }
   return (
     <Container>
-      <Slider ref={ref} {...settings}>
-        {slides.map(slide => (
-          <div>
-            <GatsbyImage image={slide.gatsbyImageData} height={300} />
-          </div>
-        ))}
-      </Slider>
+      {slides === null ? (
+        <GatsbyImage image={photo} />
+      ) : (
+        <Slider ref={ref} {...settings}>
+          {slides.map(slide => (
+            <div>
+              <GatsbyImage image={slide.gatsbyImageData} height={300} />
+            </div>
+          ))}
+        </Slider>
+      )}
     </Container>
   )
 }
