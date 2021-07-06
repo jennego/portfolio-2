@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import { Link } from "gatsby"
 import Paper from "@material-ui/core/Paper"
 import Layout from "../components/layout"
@@ -9,6 +9,7 @@ import { graphql } from "gatsby"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 import ProjectSlider from "../components/slider"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { ArrowDown } from "../components/navArrows"
 
 export const query = graphql`
   query projectQuery($id: String!) {
@@ -28,7 +29,7 @@ export const query = graphql`
         raw
       }
       gallery {
-        gatsbyImageData
+        gatsbyImageData(height: 500, placeholder: BLURRED)
       }
     }
   }
@@ -38,30 +39,16 @@ const ProjectPage = ({ data, pageContext }) => {
 
   const projectData = data.contentfulPortfolio
 
-  const document = {
-    nodeType: "document",
-    data: {},
-    content: [
-      {
-        nodeType: "paragraph",
-        data: {},
-        content: [
-          {
-            nodeType: "text",
-            value: "Hello world!",
-            marks: [],
-            data: {},
-          },
-        ],
-      },
-    ],
+  const parallax = useRef()
+  const nextPage = () => {
+    parallax.current.scrollTo(1)
   }
 
   return (
     <Layout>
       <SEO title="Page two" />
 
-      <Parallax pages={2} style={{ top: "0", left: "0" }}>
+      <Parallax ref={parallax} pages={1.7} style={{ top: "0", left: "0" }}>
         <ParallaxLayer offset={0} speed={0.2}>
           <div style={{ textAlign: "left", zIndex: "-100" }}>
             <h1>{projectData.name}</h1>
@@ -96,14 +83,18 @@ const ProjectPage = ({ data, pageContext }) => {
               </Container>
             </div>
           </div>
+          <div className="arrow-position">
+            <ArrowDown click={nextPage} />
+          </div>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={1} speed={0.5}>
-          <div style={{ textAlign: "left", zIndex: "-100" }}>
-            {console.log(projectData.longDescriptionRt.raw)}
-            {documentToReactComponents(
-              JSON.parse(projectData.longDescriptionRt.raw)
-            )}
+        <ParallaxLayer offset={1} speed={0.1}>
+          <div className="long-info">
+            <Container>
+              {documentToReactComponents(
+                JSON.parse(projectData.longDescriptionRt.raw)
+              )}
+            </Container>
           </div>
         </ParallaxLayer>
       </Parallax>

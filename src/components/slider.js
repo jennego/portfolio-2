@@ -30,7 +30,6 @@ const ProjectSlider = ({ slides, photo }) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    adaptiveHeight: true,
   }
   return (
     <Container>
@@ -39,8 +38,8 @@ const ProjectSlider = ({ slides, photo }) => {
       ) : (
         <Slider ref={ref} {...settings}>
           {slides.map(slide => (
-            <div>
-              <GatsbyImage image={slide.gatsbyImageData} height={300} />
+            <div className="slide">
+              <GatsbyImage image={slide.gatsbyImageData} />
             </div>
           ))}
         </Slider>

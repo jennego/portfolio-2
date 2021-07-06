@@ -4,11 +4,9 @@ import { StaticImage } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowAltCircleDown } from "@fortawesome/free-regular-svg-icons"
 import Button from "@material-ui/core/Button"
+import { ArrowDown } from "../navArrows"
 
 const TitlePage = ({ toNextPage }, props) => {
-  const handleClick = e => {
-    console.log("click handled!")
-  }
   return (
     <div>
       <ParallaxLayer
@@ -42,15 +40,7 @@ const TitlePage = ({ toNextPage }, props) => {
         style={{ zIndex: "100" }}
         className="center-layer"
       >
-        <FontAwesomeIcon
-          onClick={toNextPage}
-          className="arrows"
-          icon={faArrowAltCircleDown}
-          size="3x"
-          style={{
-            color: "white",
-          }}
-        />
+        <ArrowDown click={toNextPage} />
       </ParallaxLayer>
     </div>
   )
