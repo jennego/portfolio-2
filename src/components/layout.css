@@ -155,4 +155,29 @@ h3 {
 .slide {
   display: flex !important;
   justify-content: center;
+  justify-self: center !important;
+}
+
+.slide-arrows {
+  position: relative;
+  background: rgba(31, 31, 31, 0.5);
+  padding: 5px;
+}
+
+.slide-arrows:hover {
+  color: skyblue;
+}
+
+.slide-arrows-next {
+  margin: 0;
+
+  top: 190px;
+
+  padding: 5px;
+}
+
+.slide-arrows-prev {
+  margin: 0;
+  top: 190px;
+  padding: 5px;
 }

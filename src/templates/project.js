@@ -11,6 +11,7 @@ import ProjectSlider from "../components/slider"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { ArrowDown } from "../components/navArrows"
 
+
 export const query = graphql`
   query projectQuery($id: String!) {
     contentfulPortfolio(id: { eq: $id }) {
