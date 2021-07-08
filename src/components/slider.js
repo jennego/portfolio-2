@@ -74,6 +74,7 @@ const ProjectSlider = ({ slides, photo }) => {
           {slides.map(slide => (
             <div className="slide">
               <GatsbyImage image={slide.gatsbyImageData} />
+              {console.log(slide)}
             </div>
           ))}
         </Slider>

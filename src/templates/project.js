@@ -5,12 +5,15 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Grid from "@material-ui/core/Grid"
 import Container from "@material-ui/core/Container"
+import Button from "@material-ui/core/Button"
 import { graphql } from "gatsby"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 import ProjectSlider from "../components/slider"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { ArrowDown } from "../components/navArrows"
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTimes, faGlobe } from "@fortawesome/free-solid-svg-icons"
+import { faGithub } from "@fortawesome/free-brands-svg-icons"
 
 export const query = graphql`
   query projectQuery($id: String!) {
@@ -23,6 +26,9 @@ export const query = graphql`
       shortDescription
       githubUrl
       categories
+      type
+      techSkills
+      otherSkills
       mainPhoto {
         gatsbyImageData
       }
@@ -39,7 +45,7 @@ const ProjectPage = ({ data, pageContext }) => {
   const { id, name, slug } = pageContext
 
   const projectData = data.contentfulPortfolio
-
+  console.log(projectData)
   const parallax = useRef()
   const nextPage = () => {
     parallax.current.scrollTo(1)
@@ -47,13 +53,31 @@ const ProjectPage = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO title="Page two" />
+      <SEO title={projectData.name} />
 
       <Parallax ref={parallax} pages={1.7} style={{ top: "0", left: "0" }}>
         <ParallaxLayer offset={0} speed={0.2}>
-          <div style={{ textAlign: "left", zIndex: "-100" }}>
-            <h1>{projectData.name}</h1>
-            {/* <h2> {projectData.shortDescription} </h2> */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            <div style={{ textAlign: "left", marginLeft: "0.5rem" }}>
+              <h1>{projectData.name}</h1>
+              <h2>{projectData.type} </h2>
+              {/* <h2> {projectData.shortDescription} </h2> */}
+            </div>
+
+            <Button
+              variant="outlined"
+              component={Link}
+              to="/"
+              style={{ margin: "5px", maxHeight: "4rem" }}
+            >
+              <FontAwesomeIcon icon={faTimes} size="3x" />
+            </Button>
           </div>
         </ParallaxLayer>
 
@@ -62,7 +86,7 @@ const ProjectPage = ({ data, pageContext }) => {
             <div className="shape-content green-bg">
               <Container>
                 <Grid container spacing={2}>
-                  <Grid item xs={12} md={9}>
+                  <Grid item xs={12} sm={9}>
                     <Paper>
                       {console.log(projectData.gallery)}
                       <ProjectSlider
@@ -71,13 +95,23 @@ const ProjectPage = ({ data, pageContext }) => {
                       />
                     </Paper>
                   </Grid>
-                  <Grid item xs={12} md={3}>
+                  <Grid item xs={12} sm={3}>
                     <Paper style={{ padding: "1rem" }}>
                       <p> {projectData.shortDescription} </p>
-                      Quick info panel Category: <br></br>
-                      Tech: <br />
-                      Client <br />
-                      Github / site link
+                      Type: {projectData.type} <br />
+                      Tech: {projectData.techSkills.join(", ")} <br />
+                      <Button
+                        startIcon={<FontAwesomeIcon icon={faGlobe} size="2x" />}
+                      >
+                        See site
+                      </Button>
+                      <Button
+                        startIcon={
+                          <FontAwesomeIcon icon={faGithub} size="2x" />
+                        }
+                      >
+                        See code
+                      </Button>
                     </Paper>
                   </Grid>
                 </Grid>
@@ -96,6 +130,11 @@ const ProjectPage = ({ data, pageContext }) => {
                 JSON.parse(projectData.longDescriptionRt.raw)
               )}
             </Container>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Button variant="outlined" component={Link} to="/">
+                Go Back{" "}
+              </Button>
+            </div>
           </div>
         </ParallaxLayer>
       </Parallax>
