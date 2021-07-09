@@ -181,3 +181,17 @@ h3 {
   top: 190px;
   padding: 5px;
 }
+
+.project-sub-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+}
+
+.social-media > svg {
+  padding: 5px;
+}

@@ -5,6 +5,7 @@ import PortfolioGrid from "../portfolio-grid"
 import { Container } from "@material-ui/core"
 import { useStaticQuery, graphql } from "gatsby"
 import ContactForm from "../contact-form"
+import SocialMedia from "../social-media"
 
 // convert to rich text fields?
 
@@ -27,6 +28,7 @@ const Contact = () => {
           <div className="shape-content  blue-bg">
             <Container>
               <ContactForm />
+              <SocialMedia size="2x" />
             </Container>
           </div>
         </div>

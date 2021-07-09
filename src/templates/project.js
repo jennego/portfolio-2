@@ -66,7 +66,7 @@ const ProjectPage = ({ data, pageContext }) => {
           >
             <div style={{ textAlign: "left", marginLeft: "0.5rem" }}>
               <h1>{projectData.name}</h1>
-              <h2>{projectData.type} </h2>
+              <h2 class="project-sub-title">{projectData.type} </h2>
               {/* <h2> {projectData.shortDescription} </h2> */}
             </div>
 
