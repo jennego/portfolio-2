@@ -152,6 +152,12 @@ h3 {
   top: -65px;
 }
 
+@media (min-width: 1200px) {
+  .arrow-position {
+    top: -75px;
+  }
+}
+
 .slide {
   display: flex !important;
   justify-content: center;

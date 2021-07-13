@@ -10,10 +10,11 @@ import { graphql } from "gatsby"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 import ProjectSlider from "../components/slider"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { ArrowDown } from "../components/navArrows"
+import { ArrowDown, ArrowUp } from "../components/navArrows"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTimes, faGlobe } from "@fortawesome/free-solid-svg-icons"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
+import { useInView } from "react-intersection-observer"
 
 export const query = graphql`
   query projectQuery($id: String!) {
@@ -51,9 +52,14 @@ const ProjectPage = ({ data, pageContext }) => {
     parallax.current.scrollTo(1)
   }
 
+  const [arrow, inView] = useInView({
+    threshold: 0.5,
+  })
+
   return (
     <Layout>
       <SEO title={projectData.name} />
+      {console.log("in view?", inView)}
 
       <Parallax ref={parallax} pages={1.7} style={{ top: "0", left: "0" }}>
         <ParallaxLayer offset={0} speed={0.2}>
@@ -84,9 +90,9 @@ const ProjectPage = ({ data, pageContext }) => {
         <ParallaxLayer offset={0.1} factor={1} speed={0.4}>
           <div className="shape-green">
             <div className="shape-content green-bg">
-              <Container>
+              <Container ref={arrow}>
                 <Grid container spacing={2}>
-                  <Grid item xs={12} sm={9}>
+                  <Grid item xs={12} md={9}>
                     <Paper>
                       {console.log(projectData.gallery)}
                       <ProjectSlider
@@ -95,7 +101,7 @@ const ProjectPage = ({ data, pageContext }) => {
                       />
                     </Paper>
                   </Grid>
-                  <Grid item xs={12} sm={3}>
+                  <Grid item xs={12} md={3}>
                     <Paper style={{ padding: "1rem" }}>
                       <p> {projectData.shortDescription} </p>
                       Type: {projectData.type} <br />
@@ -119,7 +125,7 @@ const ProjectPage = ({ data, pageContext }) => {
             </div>
           </div>
           <div className="arrow-position">
-            <ArrowDown click={nextPage} />
+            {inView ? <ArrowDown click={nextPage} /> : <ArrowUp />}
           </div>
         </ParallaxLayer>
 
