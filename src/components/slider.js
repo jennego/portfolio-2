@@ -63,7 +63,8 @@ const ProjectSlider = ({ slides, photo }) => {
   }
   return (
     <Container>
-      {slides === null ? (
+      {console.log("slides received by slider", slides)}
+      {slides === null || slides.length < 1 ? (
         <GatsbyImage image={photo} />
       ) : (
         <Slider
@@ -74,7 +75,6 @@ const ProjectSlider = ({ slides, photo }) => {
           {slides.map(slide => (
             <div className="slide">
               <GatsbyImage image={slide.gatsbyImageData} />
-              {console.log(slide)}
             </div>
           ))}
         </Slider>

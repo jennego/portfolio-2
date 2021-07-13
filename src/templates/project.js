@@ -88,8 +88,8 @@ const ProjectPage = ({ data, pageContext }) => {
         </ParallaxLayer>
 
         <ParallaxLayer offset={0.1} factor={1} speed={0.4}>
-          <div className="shape-green">
-            <div className="shape-content green-bg">
+          <div className="shape-port">
+            <div className="shape-content purple-bg">
               <Container ref={arrow}>
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={9}>

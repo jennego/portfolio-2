@@ -68,6 +68,10 @@ h3 {
   background-color: #0741ed;
 }
 
+.purple-bg {
+  background-color: #8f30cf;
+}
+
 .shape-orange {
   background-color: #f57120;
 }
@@ -121,6 +125,18 @@ h3 {
 
 .shape-footer::before {
   content: url(../images/footer-top.svg);
+  width: 100%;
+  z-index: 10;
+}
+
+.shape-port::before {
+  content: url(../images/port-top.svg);
+  width: 100%;
+  z-index: 10;
+}
+
+.shape-port::after {
+  content: url(../images/port-bottom.svg);
   width: 100%;
   z-index: 10;
 }
