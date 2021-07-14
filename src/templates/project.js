@@ -38,6 +38,9 @@ export const query = graphql`
       }
       gallery {
         gatsbyImageData(height: 500, placeholder: BLURRED)
+        fixed {
+          src
+        }
       }
     }
   }
@@ -103,21 +106,31 @@ const ProjectPage = ({ data, pageContext }) => {
                   </Grid>
                   <Grid item xs={12} md={3}>
                     <Paper style={{ padding: "1rem" }}>
-                      <p> {projectData.shortDescription} </p>
-                      Type: {projectData.type} <br />
-                      Tech: {projectData.techSkills.join(", ")} <br />
+                      {projectData.shortDescription && (
+                        <p> {projectData.shortDescription} </p>
+                      )}
+                      {projectData.type && <div>Type: {projectData.type}</div>}
+                      {projectData.techSkills && (
+                        <div>
+                          Tech: {projectData.techSkills.join(", ")} <br />
+                        </div>
+                      )}
                       <Button
                         startIcon={<FontAwesomeIcon icon={faGlobe} size="2x" />}
                       >
                         See site
                       </Button>
-                      <Button
-                        startIcon={
-                          <FontAwesomeIcon icon={faGithub} size="2x" />
-                        }
-                      >
-                        See code
-                      </Button>
+                      {projectData.githubUrl && (
+                        <Button
+                          target="_blank"
+                          href={projectData.githubUrl}
+                          startIcon={
+                            <FontAwesomeIcon icon={faGithub} size="2x" />
+                          }
+                        >
+                          See code
+                        </Button>
+                      )}
                     </Paper>
                   </Grid>
                 </Grid>
