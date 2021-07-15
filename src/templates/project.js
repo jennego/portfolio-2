@@ -15,7 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTimes, faGlobe } from "@fortawesome/free-solid-svg-icons"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { useInView } from "react-intersection-observer"
-
+import { GatsbyImage } from "gatsby-plugin-image"
 export const query = graphql`
   query projectQuery($id: String!) {
     contentfulPortfolio(id: { eq: $id }) {
@@ -97,11 +97,12 @@ const ProjectPage = ({ data, pageContext }) => {
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={9}>
                     <Paper>
-                      {console.log(projectData.gallery)}
-                      <ProjectSlider
-                        slides={projectData.gallery}
-                        photo={projectData.mainPhoto.gatsbyImageData}
-                      />
+                      {/* {projectData.gallery.map(slide => (
+                        <div>
+                          <GatsbyImage image={slide.gatsbyImageData} />
+                        </div>
+                      ))} */}
+                      <ProjectSlider {...projectData} />
                     </Paper>
                   </Grid>
                   <Grid item xs={12} md={3}>

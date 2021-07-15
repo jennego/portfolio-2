@@ -9,22 +9,24 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons"
-const ProjectSlider = ({ slides, photo }) => {
+import Carousel from "react-material-ui-carousel"
+
+const ProjectSlider = props => {
   const ref = useRef()
+  const slides = props.gallery
+  // useEffect(() => {
+  //   document.addEventListener("keydown", arrowsFunction, false)
 
-  useEffect(() => {
-    document.addEventListener("keydown", arrowsFunction, false)
-
-    return () => {
-      document.removeEventListener("keydown", arrowsFunction, false)
-    }
-  }, [])
+  //   return () => {
+  //     document.removeEventListener("keydown", arrowsFunction, false)
+  //   }
+  // }, [])
 
   const arrowsFunction = useCallback(event => {
     if (event.key === "ArrowLeft") {
-      ref.current.slickPrev()
+      ref.current.Prev()
     } else if (event.key === "ArrowRight") {
-      ref.current.slickNext()
+      ref.current.Next()
     }
   })
 
@@ -54,7 +56,6 @@ const ProjectSlider = ({ slides, photo }) => {
 
   var settings = {
     dots: true,
-    infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -63,21 +64,28 @@ const ProjectSlider = ({ slides, photo }) => {
   }
   return (
     <Container>
-      {console.log("slides received by slider", slides)}
+      {/* {slides.map((slide, index) => (
+        <div className="slide">
+          <GatsbyImage image={slide.gatsbyImageData} key={index} />
+        </div>
+      ))} */}
+      {console.log("slides received by slider", props.gallery)}
       {slides === null ? (
-        <GatsbyImage image={photo} />
+        <h1>Still</h1>
       ) : (
-        <Slider
+        // <GatsbyImage image={photo} />
+        <Carousel
+          animation="slide"
+          navButtonsAlwaysVisible={true}
           ref={ref}
-          {...settings}
           style={{ display: "flex", justifySelf: "center" }}
         >
-          {slides.map(slide => (
+          {slides.map((slide, index) => (
             <div className="slide">
-              <GatsbyImage image={slide.gatsbyImageData} />
+              <GatsbyImage image={slide.gatsbyImageData} key={index} />
             </div>
           ))}
-        </Slider>
+        </Carousel>
       )}
     </Container>
   )
