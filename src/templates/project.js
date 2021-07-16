@@ -15,7 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTimes, faGlobe } from "@fortawesome/free-solid-svg-icons"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { useInView } from "react-intersection-observer"
-
+import { GatsbyImage } from "gatsby-plugin-image"
 export const query = graphql`
   query projectQuery($id: String!) {
     contentfulPortfolio(id: { eq: $id }) {
@@ -71,6 +71,7 @@ const ProjectPage = ({ data, pageContext }) => {
               display: "flex",
               justifyContent: "space-between",
               width: "100%",
+              flexDirection: "row",
             }}
           >
             <div style={{ textAlign: "left", marginLeft: "0.5rem" }}>
@@ -78,15 +79,24 @@ const ProjectPage = ({ data, pageContext }) => {
               <h2 class="project-sub-title">{projectData.type} </h2>
               {/* <h2> {projectData.shortDescription} </h2> */}
             </div>
-
-            <Button
-              variant="outlined"
-              component={Link}
-              to="/"
-              style={{ margin: "5px", maxHeight: "4rem" }}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                height: "4rem",
+              }}
             >
-              <FontAwesomeIcon icon={faTimes} size="3x" />
-            </Button>
+              <div>Next / Prev</div>
+              <Button
+                variant="outlined"
+                component={Link}
+                to="/"
+                style={{ margin: "5px", maxHeight: "3rem" }}
+              >
+                <FontAwesomeIcon icon={faTimes} size="3x" />
+              </Button>
+            </div>
           </div>
         </ParallaxLayer>
 
@@ -96,13 +106,12 @@ const ProjectPage = ({ data, pageContext }) => {
               <Container ref={arrow}>
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={9}>
-                    <Paper>
-                      {console.log(projectData.gallery)}
-                      <ProjectSlider
-                        slides={projectData.gallery}
-                        photo={projectData.mainPhoto.gatsbyImageData}
-                      />
-                    </Paper>
+                    {/* {projectData.gallery.map(slide => (
+                        <div>
+                          <GatsbyImage image={slide.gatsbyImageData} />
+                        </div>
+                      ))} */}
+                    <ProjectSlider {...projectData} />
                   </Grid>
                   <Grid item xs={12} md={3}>
                     <Paper style={{ padding: "1rem" }}>
