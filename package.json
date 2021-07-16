@@ -32,9 +32,7 @@
     "react-helmet": "^6.1.0",
     "react-intersection-observer": "^8.32.0",
     "react-material-ui-carousel": "^2.2.7",
-    "react-slick": "^0.28.1",
-    "react-spring": "^9.2.1",
-    "slick-carousel": "^1.8.1"
+    "react-spring": "^9.2.1"
   },
   "devDependencies": {
     "prettier": "2.2.1"
