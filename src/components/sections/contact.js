@@ -16,7 +16,7 @@ const Contact = () => {
         <div style={{ textAlign: "left", zIndex: "-100" }}>
           <h1
             className="section-heading about-heading"
-            style={{ color: "#0741ed" }}
+            style={{ color: "#0070fa" }}
           >
             Contact
           </h1>
