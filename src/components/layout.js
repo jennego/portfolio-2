@@ -49,7 +49,6 @@ const Layout = ({ children }) => {
   return (
     <>
       <div>
-        <SEO />
         <ThemeProvider theme={theme}>
           <main>{children}</main>
         </ThemeProvider>

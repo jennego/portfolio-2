@@ -5,10 +5,13 @@ import PortfolioGrid from "../portfolio-grid"
 import { Container } from "@material-ui/core"
 import { useStaticQuery, graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import useBreakpoint from "use-breakpoint"
+import useMediaQuery from "@material-ui/core/useMediaQuery"
 
-// convert to rich text fields?
+const BREAKPOINTS = { xs: 0, sm: 600, md: 960, lg: 1280, xl: 1400 }
 
 const About = props => {
+  const { breakpoint } = useBreakpoint(BREAKPOINTS)
   const data = useStaticQuery(graphql`
     {
       contentfulSiteInfo {
@@ -22,6 +25,7 @@ const About = props => {
   const content = data.contentfulSiteInfo.aboutRt.raw
   return (
     <>
+      {console.log(breakpoint)}
       <ParallaxLayer offset={2} speed={0.2}>
         <div style={{ textAlign: "left", zIndex: "-100" }}>
           <h1 className="section-heading about-heading">About</h1>
