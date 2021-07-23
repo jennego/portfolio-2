@@ -68,9 +68,8 @@ const ProjectSlider = props => {
       ))} */}
       {console.log("slides received by slider", props.gallery)}
       {slides === null ? (
-        <h1>Still</h1>
+        <GatsbyImage image={props.mainPhoto.gatsbyImageData} />
       ) : (
-        // <GatsbyImage image={photo} />
         <Carousel
           timeout="800"
           interval="7000"
