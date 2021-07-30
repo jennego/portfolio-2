@@ -33,6 +33,8 @@ const About = props => {
       </ParallaxLayer>
 
       <ParallaxLayer offset={2} factor={1} speed={0.4}>
+        {/* for xs <ParallaxLayer offset={2.2} factor={1} speed={0.4}> */}
+
         <div className="shape-green">
           <div
             className="shape-content  green-bg"
