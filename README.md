@@ -2,19 +2,19 @@ New portfolio site with Gatsby!
 
 To do
 
-- add single page (project)
 - organize css
 - fix mobile view
+- improve color contrast
 - improve animation
 - add more layers?
 - ensure basic accessibility
+- redesign front page
 
 Will use
 
 - Contentful CMS
 - React Spring
-- dark theme
-- that's all I know right now
+- Material UI
 
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
