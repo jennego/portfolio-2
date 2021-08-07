@@ -6,9 +6,40 @@ import { Container } from "@material-ui/core"
 import { useStaticQuery, graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import useBreakpoint from "use-breakpoint"
-import useMediaQuery from "@material-ui/core/useMediaQuery"
 
 const BREAKPOINTS = { xs: 0, sm: 600, md: 960, lg: 1280, xl: 1400 }
+
+const HeadingWrapper = ({ children, breakpoint }) => {
+  if (breakpoint === "xs") {
+    return <p>Bob </p>
+  }
+  return (
+    <ParallaxLayer offset={2} speed={0.2}>
+      {children}
+    </ParallaxLayer>
+  )
+}
+
+const ContentWrapper = ({ children, breakpoint }) => {
+  if (breakpoint === "xs") {
+    return (
+      <ParallaxLayer
+        offset={2}
+        factor={1}
+        speed={0.4}
+        style={{ marginTop: "300px" }}
+      >
+        {children}
+      </ParallaxLayer>
+    )
+  } else {
+    return (
+      <ParallaxLayer offset={2} factor={1} speed={0.4}>
+        {children}
+      </ParallaxLayer>
+    )
+  }
+}
 
 const About = props => {
   const { breakpoint } = useBreakpoint(BREAKPOINTS)
@@ -26,15 +57,13 @@ const About = props => {
   return (
     <>
       {console.log(breakpoint)}
-      <ParallaxLayer offset={2} speed={0.2}>
+      <HeadingWrapper>
         <div style={{ textAlign: "left", zIndex: "-100" }}>
           <h1 className="section-heading about-heading">About</h1>
         </div>
-      </ParallaxLayer>
+      </HeadingWrapper>
 
-      <ParallaxLayer offset={2} factor={1} speed={0.4}>
-        {/* for xs <ParallaxLayer offset={2.2} factor={1} speed={0.4}> */}
-
+      <ContentWrapper breakpoint={breakpoint}>
         <div className="shape-green">
           <div
             className="shape-content  green-bg"
@@ -45,7 +74,7 @@ const About = props => {
             </Container>
           </div>
         </div>
-      </ParallaxLayer>
+      </ContentWrapper>
     </>
   )
 }

@@ -1,20 +1,45 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import React from "react"
+import { Parallax, ParallaxLayer } from "@react-spring/parallax"
+import { StaticImage } from "gatsby-plugin-image"
+import PortfolioGrid from "../components/portfolio-grid"
+import useBreakpoint from "use-breakpoint"
+import Button from "@material-ui/core/Button"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+/// Max 5 or 8 in section? Tag with front page
 
-const SecondPage = () => {
-  const click = () => console.log("hi")
+const BREAKPOINTS = { xs: 0, sm: 600, md: 960, lg: 1280, xl: 1400 }
+
+const ContentWrapper = ({ children, breakpoint }) => {
+  if (breakpoint === "xs") {
+    return (
+      <ParallaxLayer offset={0.05} factor={1} speed={0.4}>
+        {children}
+      </ParallaxLayer>
+    )
+  } else {
+    return (
+      <ParallaxLayer offset={0.05} factor={1} speed={0.4}>
+        {children}
+      </ParallaxLayer>
+    )
+  }
+}
+
+const PortfolioPage = props => {
   return (
-    <Layout>
-      <SEO title="Page two" />
-      <button onClick={click}>Hi </button>
-      <h1>Hi from the second page</h1>
-      <p>Welcome to page 2</p>
-      <Link to="/">Go back to the homepage</Link>
-    </Layout>
+    <div>
+      <div style={{ textAlign: "left" }}>
+        <h1 className="section-heading portfolio-heading">Portfolio</h1>
+      </div>
+
+      <div className="shape">
+        <div className="shape-orange shape-content">
+          <PortfolioGrid />
+        </div>
+      </div>
+      <Button variant="contained"> Go Back Home </Button>
+    </div>
   )
 }
 
-export default SecondPage
+export default PortfolioPage

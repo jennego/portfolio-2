@@ -85,6 +85,7 @@ h3 {
 
 .shape {
   z-index: 20;
+  max-height: none;
 }
 
 .shape::before {
