@@ -3,6 +3,7 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 import { StaticImage } from "gatsby-plugin-image"
 import PortfolioGrid from "../portfolio-grid"
 import useBreakpoint from "use-breakpoint"
+import PortfolioMore from "../portfolio-link"
 
 /// Max 5 or 8 in section? Tag with front page
 
@@ -41,6 +42,7 @@ const Portfolio = props => {
         <div className="shape">
           <div className="shape-orange shape-content">
             <PortfolioGrid />
+            <PortfolioMore />
           </div>
         </div>
       </ContentWrapper>

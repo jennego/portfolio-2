@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import PortfolioGrid from "../components/portfolio-grid"
 import useBreakpoint from "use-breakpoint"
 import Button from "@material-ui/core/Button"
+import PortfolioMore from "../components/portfolio-link"
 
 /// Max 5 or 8 in section? Tag with front page
 
@@ -35,6 +36,7 @@ const PortfolioPage = props => {
       <div className="shape">
         <div className="shape-orange shape-content">
           <PortfolioGrid />
+          <PortfolioMore />
         </div>
       </div>
       <Button variant="contained"> Go Back Home </Button>
