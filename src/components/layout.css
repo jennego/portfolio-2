@@ -218,3 +218,17 @@ h3,
 .social-media > svg {
   padding: 5px;
 }
+
+.portfolio-more {
+  width: 100%;
+  border: white 1px solid;
+  padding: 10px;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  cursor: grab;
+}
+
+.portfolio-more:hover {
+  background-color: #591985;
+}

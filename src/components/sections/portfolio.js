@@ -42,7 +42,6 @@ const Portfolio = props => {
         <div className="shape">
           <div className="shape-orange shape-content">
             <PortfolioGrid />
-            <PortfolioMore />
           </div>
         </div>
       </ContentWrapper>
