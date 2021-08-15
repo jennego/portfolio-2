@@ -8,7 +8,7 @@ import Paper from "@material-ui/core/Paper"
 import Container from "@material-ui/core/Container"
 import Button from "@material-ui/core/Button"
 
-const PortfolioGrid = () => {
+const PortfolioGrid = ({ data }, props) => {
   const [flipped, set] = useState(false)
   const [selected, setSelected] = useState("")
   const { transform, opacity } = useSpring({
@@ -27,26 +27,6 @@ const PortfolioGrid = () => {
     set(false)
   }
 
-  const data = useStaticQuery(graphql`
-    {
-      allContentfulPortfolio {
-        edges {
-          node {
-            id
-            name
-            slug
-            shortDescription
-            mainPhoto {
-              gatsbyImageData
-              fixed(width: 500) {
-                src
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
   return (
     <div
       style={{
