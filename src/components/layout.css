@@ -57,11 +57,11 @@ h3,
 }
 
 .about-heading {
-  color: #1cbd47;
+  color: #088028;
 }
 
 .green-bg {
-  background-color: #1cbd47;
+  background-color: #088028;
 }
 
 .blue-bg {
@@ -232,4 +232,5 @@ h3,
 
 .portfolio-more:hover {
   background-color: #591985;
+  transition: background-color 0.5s;
 }
