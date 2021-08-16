@@ -6,6 +6,8 @@ import useBreakpoint from "use-breakpoint"
 import Button from "@material-ui/core/Button"
 import PortfolioMore from "../components/portfolio-link"
 import Grid from "@material-ui/core/Grid"
+import { useStaticQuery, graphql } from "gatsby"
+
 /// Max 5 or 8 in section? Tag with front page
 
 const BREAKPOINTS = { xs: 0, sm: 600, md: 960, lg: 1280, xl: 1400 }
@@ -27,6 +29,27 @@ const ContentWrapper = ({ children, breakpoint }) => {
 }
 
 const PortfolioPage = props => {
+  const data = useStaticQuery(graphql`
+    {
+      allContentfulPortfolio {
+        edges {
+          node {
+            id
+            name
+            slug
+            shortDescription
+            mainPhoto {
+              gatsbyImageData
+              fixed(width: 500) {
+                src
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <div>
       <div style={{ textAlign: "left" }}>
@@ -35,18 +58,7 @@ const PortfolioPage = props => {
 
       <div className="shape">
         <div className="shape-orange shape-content">
-          <PortfolioGrid />
-          <Grid
-            container
-            spacing={7}
-            direction="row"
-            justify="center"
-            alignItems="center"
-          >
-            <Grid item>
-              <PortfolioMore />
-            </Grid>
-          </Grid>
+          <PortfolioGrid data={data} />
         </div>
       </div>
       <Button variant="contained"> Go Back Home </Button>

@@ -220,13 +220,14 @@ h3,
 }
 
 .portfolio-more {
-  width: 100%;
+  width: 280px;
   border: white 1px solid;
-  padding: 10px;
   height: 230px;
   display: flex;
   align-items: center;
-  cursor: grab;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #de671d;
 }
 
 .portfolio-more:hover {

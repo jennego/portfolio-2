@@ -29,6 +29,7 @@ const ContentWrapper = ({ children, breakpoint }) => {
 const Portfolio = props => {
   const { breakpoint } = useBreakpoint(BREAKPOINTS)
 
+  /// max 5 or 8 ?
   const data = useStaticQuery(graphql`
     {
       allContentfulPortfolio {
@@ -63,7 +64,7 @@ const Portfolio = props => {
       <ContentWrapper breakpoint={breakpoint}>
         <div className="shape">
           <div className="shape-orange shape-content">
-            <PortfolioGrid data={data} />
+            <PortfolioGrid data={data} more={true} />
           </div>
         </div>
       </ContentWrapper>

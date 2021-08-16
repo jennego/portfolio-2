@@ -7,8 +7,9 @@ import Grid from "@material-ui/core/Grid"
 import Paper from "@material-ui/core/Paper"
 import Container from "@material-ui/core/Container"
 import Button from "@material-ui/core/Button"
+import PortfolioMore from "./portfolio-link"
 
-const PortfolioGrid = ({ data }, props) => {
+const PortfolioGrid = ({ data, more }, props) => {
   const [flipped, set] = useState(false)
   const [selected, setSelected] = useState("")
   const { transform, opacity } = useSpring({
@@ -98,6 +99,11 @@ const PortfolioGrid = ({ data }, props) => {
               </div>
             </Grid>
           ))}
+          {more && (
+            <Grid item>
+              <PortfolioMore />
+            </Grid>
+          )}
         </Grid>
       </Container>
     </div>

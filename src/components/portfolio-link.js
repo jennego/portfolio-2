@@ -9,8 +9,8 @@ const PortfolioMore = () => {
       <div
         style={{
           fontFamily: "Josefin Sans",
-          fontSize: "80px",
-          lineHeight: "65px",
+          fontSize: "60px",
+          lineHeight: "55px",
         }}
       >
         Full <br />
