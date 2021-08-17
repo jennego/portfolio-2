@@ -50,6 +50,7 @@ const InstagramFeed = () => {
               rel="no-follow"
             >
               <GatsbyImage
+                className="instaPic"
                 image={node.localFile.childImageSharp.gatsbyImageData}
               />
             </a>

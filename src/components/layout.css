@@ -237,3 +237,7 @@ h3,
   background-color: #591985;
   transition: background-color 0.5s;
 }
+
+.instaPic:hover {
+  opacity: 0.5;
+}
