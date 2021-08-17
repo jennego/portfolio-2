@@ -15,7 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTimes, faGlobe } from "@fortawesome/free-solid-svg-icons"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { useInView } from "react-intersection-observer"
-import { GatsbyImage } from "gatsby-plugin-image"
+
 export const query = graphql`
   query projectQuery($id: String!) {
     contentfulPortfolio(id: { eq: $id }) {
@@ -87,6 +87,7 @@ const ProjectPage = ({ data, pageContext }) => {
               }}
             >
               <div>Next / Prev</div>
+              {/* if history is main page navigate to main portfolio section, if not navigate to portfolio page */}
               <Button
                 variant="outlined"
                 component={Link}

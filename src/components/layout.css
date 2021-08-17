@@ -50,6 +50,9 @@ h3,
 .section-heading {
   font-size: 4rem;
   z-index: -100;
+  text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.5),
+    1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.5),
+    1px 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .portfolio-heading {
