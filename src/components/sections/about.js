@@ -11,13 +11,18 @@ const BREAKPOINTS = { xs: 0, sm: 600, md: 960, lg: 1280, xl: 1400 }
 
 const HeadingWrapper = ({ children, breakpoint }) => {
   if (breakpoint === "xs") {
-    return <p>Bob </p>
+    return (
+      <ParallaxLayer offset={2.85} speed={0.2}>
+        {children}
+      </ParallaxLayer>
+    )
+  } else {
+    return (
+      <ParallaxLayer offset={2} speed={0.2}>
+        {children}
+      </ParallaxLayer>
+    )
   }
-  return (
-    <ParallaxLayer offset={2} speed={0.2}>
-      {children}
-    </ParallaxLayer>
-  )
 }
 
 const ContentWrapper = ({ children, breakpoint }) => {
@@ -57,7 +62,7 @@ const About = props => {
   return (
     <>
       {console.log(breakpoint)}
-      <HeadingWrapper>
+      <HeadingWrapper breakpoint={breakpoint}>
         <div style={{ textAlign: "left", zIndex: "-100" }}>
           <h1 className="section-heading about-heading">About</h1>
         </div>
