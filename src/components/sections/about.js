@@ -24,7 +24,7 @@ const ContentWrapper = ({ children, breakpoint }) => {
   if (breakpoint === "xs") {
     return (
       <ParallaxLayer
-        offset={2}
+        offset={2.65}
         factor={1}
         speed={0.4}
         style={{ marginTop: "300px" }}
