@@ -17,9 +17,11 @@ const IndexPage = () => {
     parallax.current.scrollTo(1)
     console.log("hi you have come to click handler")
   }
+
+  // pages={4.5}
   return (
     <Layout>
-      <Parallax ref={parallax} pages={4.5} style={{ top: "0", left: "0" }}>
+      <Parallax ref={parallax} pages={7} style={{ top: "0", left: "0" }}>
         <TitlePage toNextPage={() => clickHandler()} />
         <Portfolio />
         <About />

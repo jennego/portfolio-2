@@ -25,12 +25,25 @@ const PortfolioGrid = ({ data, more }, props) => {
           alignItems="center"
         >
           {data.allContentfulPortfolio.edges.map(({ node }) => (
-            <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              style={{ justifyContent: "center" }}
+            >
+              {/* <Paper style={{ height: "300px", width: "300px" }} /> */}
               <FlipCard node={node} />
             </Grid>
           ))}
           {more && (
-            <Grid item>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              style={{ justifyContent: "center" }}
+            >
               <PortfolioMore />
             </Grid>
           )}
