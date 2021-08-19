@@ -54,6 +54,9 @@ const PortfolioPage = props => {
     <div>
       <div style={{ textAlign: "left" }}>
         <h1 className="section-heading portfolio-heading">Portfolio</h1>
+        <Button variant="outlined" color="#fff">
+          Go Home{" "}
+        </Button>
       </div>
 
       <div className="shape">

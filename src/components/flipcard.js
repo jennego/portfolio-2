@@ -50,6 +50,7 @@ const FlipCard = ({ node }) => {
           </Button>
         </Container>
       </a.div>
+
       <a.div
         className={`${styles.c} ${styles.front}`}
         style={

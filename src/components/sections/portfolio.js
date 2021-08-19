@@ -32,7 +32,7 @@ const Portfolio = props => {
   /// max 5 or 8 ?
   const data = useStaticQuery(graphql`
     {
-      allContentfulPortfolio {
+      allContentfulPortfolio(limit: 7) {
         edges {
           node {
             id
