@@ -6,11 +6,14 @@ import { Container } from "@material-ui/core"
 import { useStaticQuery, graphql } from "gatsby"
 import ContactForm from "../contact-form"
 import SocialMedia from "../social-media"
+import useBreakpoint from "use-breakpoint"
+
+const BREAKPOINTS = { xs: 0, sm: 600, md: 960, lg: 1280, xl: 1400 }
 
 const HeadingWrapper = ({ children, breakpoint }) => {
   if (breakpoint === "xs") {
     return (
-      <ParallaxLayer offset={3} speed={0.2}>
+      <ParallaxLayer offset={3.5} speed={0.2}>
         {children}
       </ParallaxLayer>
     )
@@ -26,13 +29,13 @@ const HeadingWrapper = ({ children, breakpoint }) => {
 const ContentWrapper = ({ children, breakpoint }) => {
   if (breakpoint === "xs") {
     return (
-      <ParallaxLayer offset={3} factor={1} speed={0.4}>
+      <ParallaxLayer offset={3.7} speed={0.4}>
         {children}
       </ParallaxLayer>
     )
   } else {
     return (
-      <ParallaxLayer offset={3} factor={1} speed={0.4}>
+      <ParallaxLayer offset={3} speed={0.4}>
         {children}
       </ParallaxLayer>
     )
@@ -40,9 +43,11 @@ const ContentWrapper = ({ children, breakpoint }) => {
 }
 
 const Contact = () => {
+  const { breakpoint } = useBreakpoint(BREAKPOINTS)
+
   return (
     <>
-      <ParallaxLayer offset={3} speed={0.2}>
+      <HeadingWrapper breakpoint={breakpoint}>
         <div style={{ textAlign: "left", zIndex: "-100" }}>
           <h1
             className="section-heading about-heading"
@@ -51,9 +56,9 @@ const Contact = () => {
             Contact
           </h1>
         </div>
-      </ParallaxLayer>
+      </HeadingWrapper>
 
-      <ParallaxLayer offset={3} factor={1} speed={0.4}>
+      <ContentWrapper breakpoint={breakpoint}>
         <div className="shape-blue">
           <div className="shape-content  blue-bg">
             <Container>
@@ -62,7 +67,7 @@ const Contact = () => {
             </Container>
           </div>
         </div>
-      </ParallaxLayer>
+      </ContentWrapper>
     </>
   )
 }
