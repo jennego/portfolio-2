@@ -7,7 +7,37 @@ import { useStaticQuery, graphql } from "gatsby"
 import ContactForm from "../contact-form"
 import SocialMedia from "../social-media"
 
-// convert to rich text fields?
+const HeadingWrapper = ({ children, breakpoint }) => {
+  if (breakpoint === "xs") {
+    return (
+      <ParallaxLayer offset={3} speed={0.2}>
+        {children}
+      </ParallaxLayer>
+    )
+  } else {
+    return (
+      <ParallaxLayer offset={3} speed={0.2}>
+        {children}
+      </ParallaxLayer>
+    )
+  }
+}
+
+const ContentWrapper = ({ children, breakpoint }) => {
+  if (breakpoint === "xs") {
+    return (
+      <ParallaxLayer offset={3} factor={1} speed={0.4}>
+        {children}
+      </ParallaxLayer>
+    )
+  } else {
+    return (
+      <ParallaxLayer offset={3} factor={1} speed={0.4}>
+        {children}
+      </ParallaxLayer>
+    )
+  }
+}
 
 const Contact = () => {
   return (

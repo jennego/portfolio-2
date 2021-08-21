@@ -7,6 +7,36 @@
   display: flex;
 }
 
+@media (min-width: 0px) and (max-width: 650px) {
+  .c {
+    width: 95%;
+  }
+}
+
+@media (min-width: 850px) {
+  .c {
+    width: 380px;
+  }
+}
+
+@media (min-width: 960px) {
+  .c {
+    width: 300px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .c {
+    width: 360px;
+  }
+}
+
+@media (min-width: 1350px) {
+  .c {
+    width: 395px;
+  }
+}
+
 .front,
 .back {
   background-size: cover;
@@ -33,7 +63,6 @@
   align-items: center;
   height: 250px;
   width: 300px;
-  justify-content: center;
 }
 
 .title {
