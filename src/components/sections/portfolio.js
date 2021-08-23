@@ -64,7 +64,11 @@ const Portfolio = props => {
       <ContentWrapper breakpoint={breakpoint}>
         <div className="shape">
           <div className="shape-orange shape-content">
-            <PortfolioGrid data={data} more={true} />
+            <PortfolioGrid
+              data={data}
+              more={true}
+              location={"www.jenniferchow.ca"}
+            />
           </div>
         </div>
       </ContentWrapper>

@@ -45,7 +45,7 @@ export const query = graphql`
     }
   }
 `
-const ProjectPage = ({ data, pageContext }) => {
+const ProjectPage = ({ data, pageContext, location }, props) => {
   const { id, name, slug } = pageContext
 
   const projectData = data.contentfulPortfolio
@@ -58,6 +58,16 @@ const ProjectPage = ({ data, pageContext }) => {
   const [arrow, inView] = useInView({
     threshold: 0.5,
   })
+
+  function BackUrl(location) {
+    if (location.state) {
+      if (location.state.prevPath === "/portfolio") {
+        return "/portfolio"
+      } else {
+        return "/"
+      }
+    } else return "/"
+  }
 
   return (
     <Layout>
@@ -89,9 +99,9 @@ const ProjectPage = ({ data, pageContext }) => {
               <div>Next / Prev</div>
               {/* if history is main page navigate to main portfolio section, if not navigate to portfolio page */}
               <Button
+                to={BackUrl(location)}
                 variant="outlined"
                 component={Link}
-                to="/"
                 style={{ margin: "5px", maxHeight: "3rem" }}
               >
                 <FontAwesomeIcon icon={faTimes} size="3x" />
@@ -153,11 +163,15 @@ const ProjectPage = ({ data, pageContext }) => {
 
         <ParallaxLayer offset={1} speed={0.1}>
           <div className="long-info">
-            <Container>
-              {documentToReactComponents(
-                JSON.parse(projectData.longDescriptionRt.raw)
-              )}
-            </Container>
+            {projectData.longDescriptionRt ? (
+              <Container>
+                {documentToReactComponents(
+                  JSON.parse(projectData.longDescriptionRt.raw)
+                )}
+              </Container>
+            ) : (
+              ""
+            )}
             <div style={{ display: "flex", justifyContent: "center" }}>
               <Button variant="outlined" component={Link} to="/">
                 Go Back{" "}

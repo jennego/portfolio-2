@@ -5,7 +5,7 @@ import * as styles from "./styles.module.css"
 import Container from "@material-ui/core/Container"
 import Button from "@material-ui/core/Button"
 
-const FlipCard = ({ node }) => {
+const FlipCard = ({ node, locationProps }) => {
   const [flipped, set] = useState(false)
   const [selected, setSelected] = useState("")
   const { transform, opacity } = useSpring({
@@ -29,7 +29,11 @@ const FlipCard = ({ node }) => {
       className={styles.container}
       onMouseEnter={() => flipCard(node.id)}
       onMouseLeave={() => flipToFront(node.id)}
-      onClick={() => navigate(`/project/${node.slug}`)}
+      onClick={() =>
+        navigate(`/project/${node.slug}`, {
+          state: { prevPath: locationProps },
+        })
+      }
       tabIndex={0}
     >
       <a.div

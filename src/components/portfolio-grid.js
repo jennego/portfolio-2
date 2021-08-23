@@ -18,7 +18,7 @@ const theme = createMuiTheme({
   },
 })
 
-const PortfolioGrid = ({ data, more }, props) => {
+const PortfolioGrid = ({ data, more, location }, props) => {
   return (
     <ThemeProvider theme={theme}>
       <div
@@ -46,7 +46,7 @@ const PortfolioGrid = ({ data, more }, props) => {
                 style={{ justifyContent: "center" }}
               >
                 {/* <Paper style={{ height: "300px", width: "300px" }} /> */}
-                <FlipCard node={node} />
+                <FlipCard node={node} locationProps={location} />
               </Grid>
             ))}
             {more && (

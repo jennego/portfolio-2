@@ -28,7 +28,7 @@ const ContentWrapper = ({ children, breakpoint }) => {
   }
 }
 
-const PortfolioPage = props => {
+const PortfolioPage = ({ location }) => {
   const data = useStaticQuery(graphql`
     {
       allContentfulPortfolio {
@@ -61,7 +61,8 @@ const PortfolioPage = props => {
 
       <div className="shape">
         <div className="shape-orange shape-content">
-          <PortfolioGrid data={data} />
+          {console.log(location)}
+          <PortfolioGrid data={data} location={location.pathname} />
         </div>
       </div>
       <Button variant="contained"> Go Back Home </Button>

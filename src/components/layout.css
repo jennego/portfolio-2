@@ -149,17 +149,6 @@ h3,
   background: #8325c2;
 }
 
-/* .shape-bottom {
-  clip-path: polygon(100% 0, 0 100%, 0 0);
-  background: #f57120;
-  height: 100px;
-  width: 100%;
-  bottom: -140px;
-  position: absolute;
-} */
-
-/* seperate into top, bottom and responsive */
-
 .long-info {
   text-align: left;
   font-size: 1.2em;
