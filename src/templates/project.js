@@ -31,7 +31,7 @@ export const query = graphql`
       techSkills
       otherSkills
       mainPhoto {
-        gatsbyImageData
+        gatsbyImageData(height: 500)
       }
       longDescriptionRt {
         raw
