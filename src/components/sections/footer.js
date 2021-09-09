@@ -24,8 +24,6 @@ const ContentWrapper = ({ children, breakpoint }) => {
 }
 
 const Footer = () => {
-  const { breakpoint } = useBreakpoint(BREAKPOINTS, "xs")
-
   return (
     <div>
       <div className="shape-footer">

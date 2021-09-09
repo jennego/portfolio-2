@@ -8,27 +8,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 /// Max 5 or 8 in section? Tag with front page
 
-const BREAKPOINTS = { xs: 0, sm: 600, md: 960, lg: 1280, xl: 1400 }
-
-const ContentWrapper = ({ children, breakpoint }) => {
-  if (breakpoint === "xs") {
-    return (
-      <ParallaxLayer offset={1.05} factor={1} speed={0.4}>
-        {children}
-      </ParallaxLayer>
-    )
-  } else {
-    return (
-      <ParallaxLayer offset={1.05} factor={1} speed={0.4}>
-        {children}
-      </ParallaxLayer>
-    )
-  }
-}
-
 const Portfolio = props => {
-  const { breakpoint } = useBreakpoint(BREAKPOINTS, "xs")
-
   /// max 5 or 8 ?
   const data = useStaticQuery(graphql`
     {

@@ -47,7 +47,6 @@ const ContentWrapper = ({ children, breakpoint }) => {
 }
 
 const About = props => {
-  const { breakpoint } = useBreakpoint(BREAKPOINTS, "xs")
   const data = useStaticQuery(graphql`
     {
       contentfulSiteInfo {
@@ -61,7 +60,6 @@ const About = props => {
   const content = data.contentfulSiteInfo.aboutRt.raw
   return (
     <div style={{ marginTop: "5rem" }}>
-      {console.log(breakpoint)}
       <div style={{ textAlign: "left", zIndex: "-100" }}>
         <h1 className="section-heading about-heading">About</h1>
       </div>
