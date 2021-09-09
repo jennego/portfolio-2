@@ -21,13 +21,11 @@ const IndexPage = () => {
   // pages={4.5}
   return (
     <Layout>
-      <Parallax ref={parallax} pages={4.5} style={{ top: "0", left: "0" }}>
-        <TitlePage toNextPage={() => clickHandler()} />
-        <Portfolio />
-        <About />
-        <Contact />
-        <Footer />
-      </Parallax>
+      <TitlePage toNextPage={() => clickHandler()} />
+      <Portfolio />
+      <About />
+      <Contact />
+      <Footer />
     </Layout>
   )
 }

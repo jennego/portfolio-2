@@ -29,7 +29,7 @@ const Footer = () => {
   return (
     <div>
       <div className="shape-footer">
-        <div className="footer-bg shape-content" style={{ minHeight: "500px" }}>
+        <div className="footer-bg shape-content" style={{ minHeight: "5rem" }}>
           <Container>
             <Grid container flex>
               <Grid xs={12} sm={4}>
