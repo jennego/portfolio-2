@@ -27,7 +27,7 @@ const ContentWrapper = ({ children, breakpoint }) => {
 }
 
 const Portfolio = props => {
-  const { breakpoint } = useBreakpoint(BREAKPOINTS)
+  const { breakpoint } = useBreakpoint(BREAKPOINTS, "xs")
 
   /// max 5 or 8 ?
   const data = useStaticQuery(graphql`

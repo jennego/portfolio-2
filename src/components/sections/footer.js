@@ -23,7 +23,7 @@ const ContentWrapper = ({ children, breakpoint }) => {
 }
 
 const Footer = () => {
-  const { breakpoint } = useBreakpoint(BREAKPOINTS)
+  const { breakpoint } = useBreakpoint(BREAKPOINTS, "xs")
 
   return (
     <ParallaxLayer offset={4} factor={1} speed={0}>

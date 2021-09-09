@@ -43,7 +43,7 @@ const ContentWrapper = ({ children, breakpoint }) => {
 }
 
 const Contact = () => {
-  const { breakpoint } = useBreakpoint(BREAKPOINTS)
+  const { breakpoint } = useBreakpoint(BREAKPOINTS, "xs")
 
   return (
     <>

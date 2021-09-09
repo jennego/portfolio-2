@@ -47,7 +47,7 @@ const ContentWrapper = ({ children, breakpoint }) => {
 }
 
 const About = props => {
-  const { breakpoint } = useBreakpoint(BREAKPOINTS)
+  const { breakpoint } = useBreakpoint(BREAKPOINTS, "xs")
   const data = useStaticQuery(graphql`
     {
       contentfulSiteInfo {
