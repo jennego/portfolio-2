@@ -131,11 +131,16 @@ const ProjectPage = ({ data, pageContext, location }, props) => {
                         Tech: {projectData.techSkills.join(", ")} <br />
                       </div>
                     )}
-                    <Button
-                      startIcon={<FontAwesomeIcon icon={faGlobe} size="2x" />}
-                    >
-                      See site
-                    </Button>
+                       {projectData.projectUrl && (
+                      <Button
+                        target="_blank"
+                        href={projectData.projectUrl}
+                        startIcon={
+                          <FontAwesomeIcon icon={faGlobe} size="2x" />
+                        }
+                      >
+                        See Site
+                      </Button>
                     {projectData.githubUrl && (
                       <Button
                         target="_blank"
