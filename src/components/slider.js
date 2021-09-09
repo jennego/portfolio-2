@@ -60,40 +60,37 @@ const ProjectSlider = props => {
     prevArrow: <PrevArrow />,
   }
   return (
-    <Container style={{ height: "500px" }}>
-      {/* {slides.map((slide, index) => (
-        <div className="slide">
-          <GatsbyImage image={slide.gatsbyImageData} key={index} />
-        </div>
-      ))} */}
+    <Container className="project-image">
       {console.log("slides received by slider", props.gallery)}
       {slides === null ? (
         <GatsbyImage image={props.mainPhoto.gatsbyImageData} />
       ) : (
-        <Carousel
-          timeout="800"
-          interval="7000"
-          animation="slide"
-          navButtonsAlwaysVisible={true}
-          ref={ref}
-          style={{ display: "flex", justifySelf: "center" }}
-        >
-          {slides.map((slide, index) => (
-            <div
-              className="slide"
-              style={{
-                display: "flex",
-                justifySelf: "center",
-              }}
-              key={index}
-            >
-              <GatsbyImage
-                image={slide.gatsbyImageData}
-                transformOptions={{ fit: "contain" }}
-              />
-            </div>
-          ))}
-        </Carousel>
+        <div className="project-image">
+          <Carousel
+            timeout="800"
+            interval="7000"
+            animation="slide"
+            navButtonsAlwaysVisible={true}
+            ref={ref}
+            style={{ display: "flex", justifySelf: "center" }}
+          >
+            {slides.map((slide, index) => (
+              <div
+                className="slide"
+                style={{
+                  display: "flex",
+                  justifySelf: "center",
+                }}
+                key={index}
+              >
+                <GatsbyImage
+                  image={slide.gatsbyImageData}
+                  transformOptions={{ fit: "contain" }}
+                />
+              </div>
+            ))}
+          </Carousel>
+        </div>
       )}
     </Container>
   )

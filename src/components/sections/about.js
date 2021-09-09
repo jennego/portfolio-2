@@ -60,27 +60,23 @@ const About = props => {
 
   const content = data.contentfulSiteInfo.aboutRt.raw
   return (
-    <>
+    <div style={{ marginTop: "5rem" }}>
       {console.log(breakpoint)}
-      <HeadingWrapper breakpoint={breakpoint}>
-        <div style={{ textAlign: "left", zIndex: "-100" }}>
-          <h1 className="section-heading about-heading">About</h1>
-        </div>
-      </HeadingWrapper>
+      <div style={{ textAlign: "left", zIndex: "-100" }}>
+        <h1 className="section-heading about-heading">About</h1>
+      </div>
 
-      <ContentWrapper breakpoint={breakpoint}>
-        <div className="shape-green">
-          <div
-            className="shape-content  green-bg"
-            style={{ paddingBottom: "15px" }}
-          >
-            <Container>
-              {documentToReactComponents(JSON.parse(content))}
-            </Container>
-          </div>
+      <div className="shape-green">
+        <div
+          className="shape-content  green-bg"
+          style={{ paddingBottom: "15px" }}
+        >
+          <Container>
+            {documentToReactComponents(JSON.parse(content))}
+          </Container>
         </div>
-      </ContentWrapper>
-    </>
+      </div>
+    </div>
   )
 }
 

@@ -46,29 +46,25 @@ const Contact = () => {
   const { breakpoint } = useBreakpoint(BREAKPOINTS, "xs")
 
   return (
-    <>
-      <HeadingWrapper breakpoint={breakpoint}>
-        <div style={{ textAlign: "left", zIndex: "-100" }}>
-          <h1
-            className="section-heading about-heading"
-            style={{ color: "#0070fa" }}
-          >
-            Contact
-          </h1>
-        </div>
-      </HeadingWrapper>
+    <div style={{ marginTop: "5rem" }}>
+      <div style={{ textAlign: "left", zIndex: "-100" }}>
+        <h1
+          className="section-heading about-heading"
+          style={{ color: "#0070fa" }}
+        >
+          Contact
+        </h1>
+      </div>
 
-      <ContentWrapper breakpoint={breakpoint}>
-        <div className="shape-blue">
-          <div className="shape-content  blue-bg">
-            <Container>
-              <ContactForm />
-              <SocialMedia size="2x" />
-            </Container>
-          </div>
+      <div className="shape-blue">
+        <div className="shape-content  blue-bg">
+          <Container>
+            <ContactForm />
+            <SocialMedia size="2x" />
+          </Container>
         </div>
-      </ContentWrapper>
-    </>
+      </div>
+    </div>
   )
 }
 

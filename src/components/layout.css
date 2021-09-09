@@ -11,6 +11,10 @@ body {
   font-family: "Montserrat", sans-serif;
   color: white;
 }
+a,
+a:link {
+  color: skyblue;
+}
 
 h1,
 h2,
@@ -53,6 +57,7 @@ h3,
   text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.5),
     1px -1px 0 rgba(255, 255, 255, 0.5), -1px 1px 0 rgba(255, 255, 255, 0.5),
     1px 1px 0 rgba(255, 255, 255, 0.5);
+  margin-bottom: 0;
 }
 
 .portfolio-heading {
@@ -229,4 +234,22 @@ h3,
 
 .instaPic:hover {
   opacity: 0.5;
+}
+
+.overlay {
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+@media (min-width: 992px) {
+  .project-image {
+    height: 500px;
+  }
 }

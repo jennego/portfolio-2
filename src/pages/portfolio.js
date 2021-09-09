@@ -1,12 +1,9 @@
 import React from "react"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
-import { StaticImage } from "gatsby-plugin-image"
 import PortfolioGrid from "../components/portfolio-grid"
-import useBreakpoint from "use-breakpoint"
 import Button from "@material-ui/core/Button"
-import PortfolioMore from "../components/portfolio-link"
-import Grid from "@material-ui/core/Grid"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
+import Layout from "../components/layout"
 
 /// Max 5 or 8 in section? Tag with front page
 
@@ -51,22 +48,31 @@ const PortfolioPage = ({ location }) => {
   `)
 
   return (
-    <div>
-      <div style={{ textAlign: "left" }}>
-        <h1 className="section-heading portfolio-heading">Portfolio</h1>
-        <Button variant="outlined" color="#fff">
-          Go Home{" "}
-        </Button>
-      </div>
+    <Layout>
+      <div>
+        <div style={{ textAlign: "left" }}>
+          <h1 className="section-heading portfolio-heading">Portfolio</h1>
+        </div>
 
-      <div className="shape">
-        <div className="shape-orange shape-content">
-          {console.log(location)}
-          <PortfolioGrid data={data} location={location.pathname} />
+        <div className="shape">
+          <div className="shape-orange shape-content">
+            {console.log(location)}
+            <PortfolioGrid data={data} location={location.pathname} />
+          </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            paddingBottom: "5rem",
+          }}
+        >
+          <Button variant="outlined" component={Link}>
+            Go Back Home
+          </Button>
         </div>
       </div>
-      <Button variant="contained"> Go Back Home </Button>
-    </div>
+    </Layout>
   )
 }
 

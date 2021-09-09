@@ -52,27 +52,21 @@ const Portfolio = props => {
   `)
 
   return (
-    <>
-      <ParallaxLayer offset={1} speed={0}>
-        <div style={{ textAlign: "left" }}>
-          <h1 className="section-heading portfolio-heading">
-            Selected Projects
-          </h1>
-        </div>
-      </ParallaxLayer>
+    <div style={{ marginTop: "5rem" }}>
+      <div style={{ textAlign: "left" }}>
+        <h1 className="section-heading portfolio-heading">Selected Projects</h1>
+      </div>
 
-      <ContentWrapper breakpoint={breakpoint}>
-        <div className="shape">
-          <div className="shape-orange shape-content">
-            <PortfolioGrid
-              data={data}
-              more={true}
-              location={"www.jenniferchow.ca"}
-            />
-          </div>
+      <div className="shape">
+        <div className="shape-orange shape-content">
+          <PortfolioGrid
+            data={data}
+            more={true}
+            location={"www.jenniferchow.ca"}
+          />
         </div>
-      </ContentWrapper>
-    </>
+      </div>
+    </div>
   )
 }
 

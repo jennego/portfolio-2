@@ -70,117 +70,111 @@ const ProjectPage = ({ data, pageContext, location }, props) => {
   }
 
   return (
-    <Layout>
-      <SEO title={projectData.name} />
-      {console.log("in view?", inView)}
+    <div style={{ paddingBottom: "5rem" }}>
+      <Layout>
+        <SEO title={projectData.name} />
+        {console.log("in view?", inView)}
 
-      <Parallax ref={parallax} pages={1.7} style={{ top: "0", left: "0" }}>
-        <ParallaxLayer offset={0} speed={0.2}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            width: "100%",
+            flexDirection: "row",
+          }}
+        >
+          <div style={{ textAlign: "left", marginLeft: "0.5rem" }}>
+            <h1>{projectData.name}</h1>
+            <h2 class="project-sub-title">{projectData.type} </h2>
+          </div>
           <div
             style={{
               display: "flex",
-              justifyContent: "space-between",
-              width: "100%",
               flexDirection: "row",
+              alignItems: "center",
+              height: "4rem",
             }}
           >
-            <div style={{ textAlign: "left", marginLeft: "0.5rem" }}>
-              <h1>{projectData.name}</h1>
-              <h2 class="project-sub-title">{projectData.type} </h2>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                height: "4rem",
-              }}
+            <div>Next / Prev</div>
+            {/* if history is main page navigate to main portfolio section, if not navigate to portfolio page */}
+            <Button
+              to={BackUrl(location)}
+              variant="outlined"
+              component={Link}
+              style={{ margin: "5px", maxHeight: "3rem" }}
             >
-              <div>Next / Prev</div>
-              {/* if history is main page navigate to main portfolio section, if not navigate to portfolio page */}
-              <Button
-                to={BackUrl(location)}
-                variant="outlined"
-                component={Link}
-                style={{ margin: "5px", maxHeight: "3rem" }}
-              >
-                <FontAwesomeIcon icon={faTimes} size="3x" />
-              </Button>
-            </div>
+              <FontAwesomeIcon icon={faTimes} size="3x" />
+            </Button>
           </div>
-        </ParallaxLayer>
+        </div>
 
-        <ParallaxLayer offset={0.1} factor={1} speed={0.4}>
-          <div className="shape-port">
-            <div className="shape-content purple-bg">
-              <Container ref={arrow}>
-                <Grid container spacing={2}>
-                  <Grid item xs={12} md={9}>
-                    {/* {projectData.gallery.map(slide => (
-                        <div>
-                          <GatsbyImage image={slide.gatsbyImageData} />
-                        </div>
-                      ))} */}
-                    <ProjectSlider {...projectData} />
-                  </Grid>
-                  <Grid item xs={12} md={3}>
-                    <Paper style={{ padding: "1rem" }}>
-                      {projectData.shortDescription && (
-                        <p> {projectData.shortDescription} </p>
-                      )}
-                      {projectData.type && <div>Type: {projectData.type}</div>}
-                      {projectData.techSkills && (
-                        <div>
-                          Tech: {projectData.techSkills.join(", ")} <br />
-                        </div>
-                      )}
-                      <Button
-                        startIcon={<FontAwesomeIcon icon={faGlobe} size="2x" />}
-                      >
-                        See site
-                      </Button>
-                      {projectData.githubUrl && (
-                        <Button
-                          target="_blank"
-                          href={projectData.githubUrl}
-                          startIcon={
-                            <FontAwesomeIcon icon={faGithub} size="2x" />
-                          }
-                        >
-                          See code
-                        </Button>
-                      )}
-                    </Paper>
-                  </Grid>
+        <div className="shape-port">
+          <div className="shape-content purple-bg">
+            <Container ref={arrow}>
+              <Grid container spacing={2}>
+                <Grid item xs={12} md={9}>
+                  {/* {projectData.gallery.map(slide => (
+                  <div>
+                  <GatsbyImage image={slide.gatsbyImageData} />
+                  </div>
+                ))} */}
+                  <ProjectSlider {...projectData} />
                 </Grid>
-              </Container>
-            </div>
+                <Grid item xs={12} md={3}>
+                  <Paper style={{ padding: "1rem" }}>
+                    {projectData.shortDescription && (
+                      <p> {projectData.shortDescription} </p>
+                    )}
+                    {projectData.type && <div>Type: {projectData.type}</div>}
+                    {projectData.techSkills && (
+                      <div>
+                        Tech: {projectData.techSkills.join(", ")} <br />
+                      </div>
+                    )}
+                    <Button
+                      startIcon={<FontAwesomeIcon icon={faGlobe} size="2x" />}
+                    >
+                      See site
+                    </Button>
+                    {projectData.githubUrl && (
+                      <Button
+                        target="_blank"
+                        href={projectData.githubUrl}
+                        startIcon={
+                          <FontAwesomeIcon icon={faGithub} size="2x" />
+                        }
+                      >
+                        See code
+                      </Button>
+                    )}
+                  </Paper>
+                </Grid>
+              </Grid>
+            </Container>
           </div>
-          <div className="arrow-position">
-            {inView ? <ArrowDown click={nextPage} /> : <ArrowUp />}
-          </div>
-        </ParallaxLayer>
+        </div>
+        <div className="arrow-position">
+          {inView ? <ArrowDown click={nextPage} /> : <ArrowUp />}
+        </div>
 
-        <ParallaxLayer offset={1} speed={0.1}>
-          <div className="long-info">
-            {projectData.longDescriptionRt ? (
-              <Container>
-                {documentToReactComponents(
-                  JSON.parse(projectData.longDescriptionRt.raw)
-                )}
-              </Container>
-            ) : (
-              ""
-            )}
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <Button variant="outlined" component={Link} to="/">
-                Go Back{" "}
-              </Button>
-            </div>
+        <div className="long-info">
+          {projectData.longDescriptionRt ? (
+            <Container>
+              {documentToReactComponents(
+                JSON.parse(projectData.longDescriptionRt.raw)
+              )}
+            </Container>
+          ) : (
+            ""
+          )}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Button variant="outlined" component={Link} to={BackUrl(location)}>
+              Go Back
+            </Button>
           </div>
-        </ParallaxLayer>
-      </Parallax>
-    </Layout>
+        </div>
+      </Layout>
+    </div>
   )
 }
 
