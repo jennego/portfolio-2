@@ -22,7 +22,7 @@ const TitlePage = ({ toNextPage }, props) => {
         >
           <h1 className="site-title">Jennifer Chow</h1>
           <h2 className="site-subtitle">Web Developer</h2>
-          <ArrowDown click={toNextPage} />
+          {/* <ArrowDown click={toNextPage} /> */}
         </div>
       </div>
 
