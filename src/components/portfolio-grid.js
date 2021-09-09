@@ -30,13 +30,7 @@ const PortfolioGrid = ({ data, more, location }, props) => {
         }}
       >
         <Container>
-          <Grid
-            container
-            spacing={2}
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-          >
+          <Grid container spacing={2}>
             {data.allContentfulPortfolio.edges.map(({ node }) => (
               <Grid
                 item
