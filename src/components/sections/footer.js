@@ -29,7 +29,7 @@ const Footer = () => {
       <div className="shape-footer">
         <div className="footer-bg shape-content" style={{ minHeight: "5rem" }}>
           <Container>
-            <Grid container flex>
+            <Grid container style={{ display: "flex" }}>
               <Grid xs={12} sm={4}>
                 Created with Gatsby by Jennifer Chow. <br />
               </Grid>

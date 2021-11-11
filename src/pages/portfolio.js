@@ -67,7 +67,7 @@ const PortfolioPage = ({ location }) => {
             paddingBottom: "5rem",
           }}
         >
-          <Button variant="outlined" component={Link}>
+          <Button variant="outlined" component={Link} to={"/"}>
             Go Back Home
           </Button>
         </div>
