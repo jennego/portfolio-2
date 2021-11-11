@@ -6,15 +6,13 @@
  */
 
 import * as React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 import "./layout.css"
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import Footer from "./sections/footer"
 import SEO from "./seo"
-
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
 
 const theme = createMuiTheme({
   palette: {
@@ -56,10 +54,6 @@ const Layout = ({ children }) => {
       </div>
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

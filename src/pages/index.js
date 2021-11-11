@@ -1,9 +1,7 @@
 import React, { useRef } from "react"
-import Layout from "../components/layout"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 
 import SEO from "../components/seo"
+import Layout from "../components/layout"
 import TitlePage from "../components/sections/title-page"
 import Portfolio from "../components/sections/portfolio"
 import About from "../components/sections/about"
@@ -17,7 +15,6 @@ const IndexPage = () => {
     console.log("hi you have come to click handler")
   }
 
-  // pages={4.5}
   return (
     <Layout>
       <TitlePage toNextPage={() => clickHandler()} />
@@ -28,35 +25,5 @@ const IndexPage = () => {
     </Layout>
   )
 }
-
-// const IndexPage = () => (
-//   <Layout>
-//     <TitlePage />
-//     <Parallax>
-//       <ParallaxLayer>
-//         <p>Scroll down</p>
-//       </ParallaxLayer>
-
-//       <ParallaxLayer
-//         offset={1}
-//         speed={2}
-//         style={{ backgroundColor: "#ff6d6d" }}
-//       />
-
-//       <ParallaxLayer
-//         offset={1}
-//         speed={0.5}
-//         style={{
-//           display: "flex",
-//           justifyContent: "center",
-//           alignItems: "center",
-//           color: "white",
-//         }}
-//       >
-//         <p>Scroll up</p>
-//       </ParallaxLayer>
-//     </Parallax>
-//   </Layout>
-// )
 
 export default IndexPage
